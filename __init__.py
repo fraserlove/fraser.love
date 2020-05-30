@@ -4,7 +4,7 @@ from threading import Thread
 import os, datetime
 
 app = Flask(__name__)
-app.secret_key = 'lpHIsGb&55NfHhhZmf9mjA3QVq8t&b@!'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 app.config['MAIL_SERVER'] = 'mail.privateemail.com'
 app.config['MAIL_PORT'] = 587
