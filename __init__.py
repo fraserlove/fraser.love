@@ -34,6 +34,7 @@ def send_mail(subject, sender, recipient, template):
     return thread
 
 @app.route('/')
+@app.route('//')
 def home():
     return render_template('main.html')
 
