@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_mail import Mail, Message
 from threading import Thread
+from urlparse import urlparse, urlunparse
 import os, datetime
 
 app = Flask(__name__)
@@ -15,11 +16,18 @@ app.config['MAIL_PASSWORD'] = os.environ.get('SENDER_PASS')
 mail = Mail(app)
 
 @app.before_request
-def before_request():
+def redirect_https():
     if request.url.startswith('http://'):
         url = request.url.replace('http://', 'https://', 1)
-        code = 301
-        return redirect(url, code=code)
+        return redirect(url, code=301)
+
+@app.before_request
+def redirect_www():
+    urlparts = urlparse(request.url)
+    if urlparts.netloc == 'fraser.love':
+        urlparts_list = list(urlparts)
+        urlparts_list[1] = 'www.fraser.love'
+        return redirect(urlparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
     with app.app_context():
@@ -34,7 +42,6 @@ def send_mail(subject, sender, recipient, template):
     return thread
 
 @app.route('/')
-@app.route('//')
 def home():
     return render_template('main.html')
 
