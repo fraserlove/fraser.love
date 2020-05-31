@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_mail import Mail, Message
 from threading import Thread
-from urllib import urlparse, urlunparse
+from urllib import parse
 import os, datetime
 
 app = Flask(__name__)
