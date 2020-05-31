@@ -24,9 +24,9 @@ def redirect_https():
 @app.before_request
 def redirect_www():
     urlparts = urlparse(request.url)
-    if urlparts.netloc == 'fraser.love':
+    if urlparts.netloc == 'www.fraser.love':
         urlparts_list = list(urlparts)
-        urlparts_list[1] = 'www.fraser.love'
+        urlparts_list[1] = 'fraser.love'
         return redirect(urlunparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
