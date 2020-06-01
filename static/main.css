@@ -41,6 +41,47 @@ img{
   background: linear-gradient(to top, #212121, #0a0a0a);
 }
 
+.section-heading h1{
+  font-size: 8rem;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #35aae8, #531cd4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  white-space: nowrap;
+}
+
+.section-heading h1:before{
+  content: "";
+  position: absolute;
+  left: 0%;
+  right: 100%;
+  bottom: 0.5rem;
+  background: linear-gradient(to right, #35aae8, #531cd4);
+  height: 0.1em;
+  transition-property: left right;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(1,0,.19,1);
+}
+
+.section-heading h1:hover:before{
+  left: 0;
+  right: 0;
+}
+
+.section-heading h6{
+  font-size: 3rem;
+  font-weight: 300;
+  user-select: none;
+  margin-bottom: 5rem;
+  width: 70%;
+  display: inline-block;
+}
+
 /* Track */
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
@@ -96,14 +137,12 @@ header{
 
 .nav-list{
   list-style: none;
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
 }
 
-li{
-  margin: 0 2rem;
+.nav-list li{
+  margin: 1.2rem 2rem;
 }
 
 .nav-link{
@@ -309,37 +348,6 @@ li{
   text-align: center;
 }
 
-.about-heading h1{
-  font-size: 8rem;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(to right, #35aae8, #531cd4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -110%);
-}
-
-.about-heading h1:before{
-  content: "";
-  position: absolute;
-  left: 0%;
-  right: 100%;
-  bottom: 0.5rem;
-  background: linear-gradient(to right, #35aae8, #531cd4);
-  height: 0.1em;
-  transition-property: left right;
-  transition-duration: 1s;
-  transition-timing-function: cubic-bezier(1,0,.19,1);
-}
-
-.about-heading h1:hover:before{
-  left: 0;
-  right: 0;
-}
-
 .about-details{
   width: 100rem;
   display: inline-block;
@@ -403,46 +411,6 @@ li{
   margin-bottom: 40rem;
   text-align: center;
   width: 100%;
-}
-
-.portfolio h1{
-  font-size: 8rem;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(to right, #35aae8, #531cd4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -110%);
-}
-
-.portfolio h1:before{
-  content: "";
-  position: absolute;
-  left: 0%;
-  right: 100%;
-  bottom: 0.5rem;
-  background: linear-gradient(to right, #35aae8, #531cd4);
-  height: 0.1em;
-  transition-property: left right;
-  transition-duration: 1s;
-  transition-timing-function: cubic-bezier(1,0,.19,1);
-}
-
-.portfolio h1:hover:before{
-  left: 0;
-  right: 0;
-}
-
-.portfolio h6{
-  font-size: 3rem;
-  font-weight: 300;
-  user-select: none;
-  margin-bottom: 5rem;
-  width: 70%;
-  display: inline-block;
 }
 
 .portfolio-container{
@@ -626,48 +594,8 @@ input[type='submit']:hover{
   margin-top: 10px;
 }
 
-.contact h1{
-  font-size: 8rem;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(to right, #35aae8, #531cd4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -110%);
-}
-
-.contact h1:before{
-  content: "";
-  position: absolute;
-  left: 0%;
-  right: 100%;
-  bottom: 0.5rem;
-  background: linear-gradient(to right, #35aae8, #531cd4);
-  height: 0.1em;
-  transition-property: left right;
-  transition-duration: 1s;
-  transition-timing-function: cubic-bezier(1,0,.19,1);
-}
-
-.contact h1:hover:before{
-  left: 0;
-  right: 0;
-}
-
 .contact{
   text-align: center;
-}
-
-.contact h6{
-  font-size: 3rem;
-  font-weight: 300;
-  user-select: none;
-  margin-bottom: 5rem;
-  width: 70%;
-  display: inline-block;
 }
 
 .contact label{
@@ -972,7 +900,7 @@ input[type='submit']:hover{
 
 @media screen and (max-width: 768px){
   .landing-text h1{
-    font-size: 12rem;
+    font-size: 10rem;
   }
 
   .landing-text h1:before{
@@ -981,6 +909,7 @@ input[type='submit']:hover{
 
   .landing-text h6{
     font-size: 2.2rem;
+    margin-top: 14rem;
   }
 
   .about-details{
@@ -1001,21 +930,23 @@ input[type='submit']:hover{
   }
 
   form{
-    width: 60rem;
+    width: 55rem;
   }
 }
 
 @media screen and (max-width: 600px){
   .landing-text h1{
-    font-size: 12rem;
+    font-size: 8rem;
   }
 
   .landing-text h1:before{
     bottom: 0.8rem;
+    height: 0.7rem;
   }
 
   .landing-text h6{
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-top: 10rem;
   }
 
   .about-details{
@@ -1023,7 +954,7 @@ input[type='submit']:hover{
   }
 
   .about-details p{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .about-details h6{
@@ -1036,21 +967,65 @@ input[type='submit']:hover{
   }
 
   form{
-    width: 60rem;
+    width: 45rem;
+  }
+
+  .menu-toggler{
+    top: 3rem;
+    right: 3rem;
+  }
+
+  .nav-link{
+    margin: 2rem 0rem;
+    font-size: 3rem;
+  }
+
+  .nav-link:before{
+    height: 0.4rem;
+  }
+
+  .nav-list{
+    display: inline-block;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .top-nav{
+    right: 0rem;
+    top: 0rem;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .top-nav.open{
+    right: 0rem;
+    top: 0rem;
+    z-index: 100;
   }
 }
 
 @media screen and (max-width: 480px){
   .landing-text h1{
-    font-size: 12rem;
+    font-size: 6.5rem;
   }
 
   .landing-text h1:before{
-    bottom: 0.8rem;
+    bottom: 0.6rem;
+    height: 0.5rem;
   }
 
   .landing-text h6{
     font-size: 2.2rem;
+  }
+
+  .about-details table{
+    width: 35rem;
+    margin-top: 6rem;
   }
 
   .about-details{
@@ -1058,20 +1033,32 @@ input[type='submit']:hover{
   }
 
   .about-details p{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .about-details h6{
-    font-size: 1.6rem;
+    font-size: 2rem;
   }
 
   .about-details td{
-    font-size: 1rem;
-    padding-bottom: 1.6rem;
+    font-size: 1.1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .about-details .s-row{
+    padding-left: 2rem;
   }
 
   form{
-    width: 60rem;
+    width: 35rem;
+  }
+
+  .section-heading h1{
+    font-size: 6rem;
+  }
+
+  .section-heading h6{
+    font-size: 2.4rem;
   }
 }
 
