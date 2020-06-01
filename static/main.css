@@ -984,4 +984,30 @@ input[type='submit']:hover{
   }
 }
 
+@media screen and (max-width: 600px){
+  .landing-text h1{
+    font-size: 12rem;
+  }
+
+  .landing-text h1:before{
+    bottom: 0.8rem;
+  }
+
+  .landing-text h6{
+    font-size: 2.2rem;
+  }
+
+  .about-details{
+    width: 60rem;
+  }
+
+  .about-details p{
+    font-size: 1.4rem;
+  }
+
+  form{
+    width: 60rem;
+  }
+}
+
 /* end media queries */
