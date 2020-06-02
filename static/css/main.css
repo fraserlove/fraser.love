@@ -32,10 +32,6 @@ p{
   font-weight: 300;
 }
 
-img{
-  width: 100%;
-}
-
 ::-webkit-scrollbar {
   width: 8px;
   background: linear-gradient(to top, #212121, #0a0a0a);
