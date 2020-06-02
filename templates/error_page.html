@@ -4,17 +4,16 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="main.css") }}'>
-    <link rel='stylesheet' type='text/css' href='{{ url_for("static", filename="swiper.css") }}'>
     <link rel='stylesheet' href='https://unpkg.com/aos@next/dist/aos.css'/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr' crossorigin='anonymous'>
-    <title>404 Page Not Found</title>
+    <link rel="icon" type="image/png" href='/static/images/favicon.ico'>
+    <title>{{error_code}} {{error_title}}</title>
 </head>
 <body>
     <div class='error-page'>
         <div class='landing-text'>
-            <h1>404.</h1>
-            <h3>The page you are looking for does not exist.</h3>
+            <h1>{{error_code}}.</h1>
+            <h3>{{error_title}}.</h3>
+            <p>{{error_desc}}</p>
             <div class='home-button-bg'>
                 <a href='{{ url_for("home") }}' class='cta'>Back to Home</a>
             </div>

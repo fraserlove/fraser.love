@@ -45,13 +45,13 @@ def send_mail(subject, sender, recipient, template):
 def home():
     return render_template('main.html')
 
-@app.errorhandler(404)
+@app.errorhandler(Exception)
 def page_not_found(error):
-    return render_template('404.html'), 404
-
-@app.errorhandler(500)
-def exception_handler(error):
-    return render_template('500.html'), 500
+    print(error)
+    error_code = str(error)[:3]
+    error_title = str(error)[3:].split(':')[0]
+    error_desc = str(error).split(':')[1]
+    return render_template('error_page.html', error_code=error_code, error_title=error_title, error_desc=error_desc), int(error_code)
 
 @app.route('/contact', methods=['POST'])
 def contact():

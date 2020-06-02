@@ -691,12 +691,14 @@ input[type='submit']:hover{
 
 /* start error page */
 .error-page .landing-text h1{
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, -80%);
 }
 
 .error-page .landing-text h3{
-  margin-top: 16rem;
+  margin-top: 20rem;
+  margin-bottom: 4rem;
   font-size: 3.2rem;
+  user-select: none;
 }
 
 .error-page a{
@@ -712,6 +714,14 @@ input[type='submit']:hover{
   -webkit-text-fill-color: transparent;
 }
 
+.error-page .landing-text{
+  width: 70%;
+}
+
+.error-page p{
+  user-select: none;
+}
+
 .home-button-bg:hover{
   background-color: #111111;
   top: -1px;
@@ -725,7 +735,8 @@ input[type='submit']:hover{
   display: inline-block;
   background-color: #181818;
   border-radius: 2px;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  padding: 0.5rem 0rem;
 }
 
 .error-page{
