@@ -4,7 +4,7 @@ from threading import Thread
 from urllib.parse import urlparse, urlunparse
 import os, datetime
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='')
 app.secret_key = os.environ.get('SECRET_KEY')
 
 app.config['MAIL_SERVER'] = 'mail.privateemail.com'

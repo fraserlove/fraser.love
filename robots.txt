@@ -1,0 +1,4 @@
+# robots.txt file for fraser.love
+# Created 02/06/20
+
+Sitemap: https://fraser.love/sitemap.xml
