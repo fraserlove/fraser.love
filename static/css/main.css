@@ -80,7 +80,8 @@ p{
 
 /* Track */
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background-color: #1e1e1e;
@@ -91,7 +92,8 @@ p{
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: linear-gradient(to bottom, #1c6fd4, #531cd4);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 /* end global */
@@ -110,6 +112,7 @@ header{
   transform: translate(-50%, 0%);
   background: linear-gradient(to right, #1c6fd4, #531cd4);
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
   border-radius: 5px;
   margin-top: 2rem;
   animation: flash-in 1s;
@@ -517,7 +520,8 @@ textarea::-webkit-scrollbar {
 
 /* Track */
 textarea::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -527,7 +531,8 @@ textarea::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: linear-gradient(to bottom, #1c6fd4, #531cd4);
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 input[type='submit']{
