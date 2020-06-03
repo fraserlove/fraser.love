@@ -1,9 +1,9 @@
-from flask import Flask, render_template, url_for, request, redirect, flash
+from flask import Flask, render_template, url_for, request, redirect, flash, make_response
 from flask_mail import Mail, Message
 from flask_compress import Compress
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
-import os, datetime
+import os, datetime, time
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 app.secret_key = os.environ.get('SECRET_KEY')
@@ -16,6 +16,8 @@ app.config['MAIL_PASSWORD'] = os.environ.get('SENDER_PASS')
 
 mail = Mail(app)
 Compress(app)
+
+msg_timeout = 3600
 
 @app.before_request
 def redirect_https():
@@ -36,7 +38,6 @@ def async_send_mail(app, msg):
         mail.send(msg)
 
 def send_mail(subject, sender, recipient, template):
-    print(sender, recipient)
     msg = Message(subject, sender=sender, recipients=[recipient])
     msg.html = template
     thread = Thread(target=async_send_mail, args=[app, msg])
@@ -49,7 +50,6 @@ def home():
 
 @app.errorhandler(Exception)
 def page_not_found(error):
-    print(error)
     error_code = str(error)[:3]
     error_title = str(error)[3:].split(':')[0]
     error_desc = str(error).split(':')[1]
@@ -57,22 +57,38 @@ def page_not_found(error):
 
 @app.route('/contact', methods=['POST'])
 def contact():
-    name = request.form.get('name').lower()
-    email = request.form.get('email').lower()
-    message = request.form.get('message')
+    previous_submission = request.cookies.get('time')
+    response = make_response(redirect('/'))
 
-    html = """
-            <html>
-                <b>{} @ '{}' sent the following message at {}:</b>
-                <br><br><i>{}</i>
-            </html>
-            """.format(name, email, datetime.datetime.now(), message)
+    if previous_submission == None:
+        previous_submission = 0
 
-    subject = 'fraser.love: New message from {}'.format(name)
+    time_elapsed = time.time() - float(previous_submission)
+    
+    if time_elapsed > msg_timeout:
+        name = request.form.get('name').lower()
+        email = request.form.get('email').lower()
+        message = request.form.get('message')
 
-    send_mail(subject, os.environ.get('SENDER_EMAIL'), os.environ.get('RECIEVER_EMAIL'), html)
-    flash('Message has been sent successfully', 'info')
-    return redirect('/')
+        html = """
+                <html>
+                    <b>{} @ '{}' sent the following message at {}:</b>
+                    <br><br><i>{}</i>
+                </html>
+                """.format(name, email, datetime.datetime.now(), message)
+
+        subject = 'fraser.love: New message from {}'.format(name)
+
+        send_mail(subject, os.environ.get('SENDER_EMAIL'), os.environ.get('RECIEVER_EMAIL'), html)
+        flash_message, flash_type = 'Message has been sent successfully.', 'info'
+        response.set_cookie('time', str(time.time()))
+    else:
+        seconds_left = msg_timeout - time_elapsed
+        time_left = datetime.datetime(1,1,1) + datetime.timedelta(seconds=float(seconds_left))
+        flash_message, flash_type = 'Error message timeout wait {}m and {}s.'.format(time_left.minute, time_left.second), 'error'
+
+    flash(flash_message, flash_type)
+    return response
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
