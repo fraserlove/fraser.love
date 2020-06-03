@@ -10,7 +10,7 @@ $(document).ready(function(){
 
     const pageDown = document.querySelector('.page-down');
     pageDown.addEventListener('click', function() {
-        window.scrollTo({ top: $('.about').offset().top - window.innerHeight / 4, behavior: 'smooth' });
+        window.scrollTo({ top: $('.about').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
     const pageUp = document.querySelector('.page-up');
@@ -25,17 +25,17 @@ $(document).ready(function(){
 
     const aboutScroll = document.querySelector('.about-link');
     aboutScroll.addEventListener('click', function() {
-        window.scrollTo({ top: $('.about').offset().top - window.innerHeight / 4, behavior: 'smooth' });
+        window.scrollTo({ top: $('.about').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
     const portfolioScroll = document.querySelector('.portfolio-link');
     portfolioScroll.addEventListener('click', function() {
-        window.scrollTo({ top: $('.portfolio').offset().top - window.innerHeight / 4, behavior: 'smooth' });
+        window.scrollTo({ top: $('.portfolio').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
     const contactScroll = document.querySelector('.contact-link');
     contactScroll.addEventListener('click', function() {
-        window.scrollTo({ top: $('.contact').offset().top - window.innerHeight / 4, behavior: 'smooth' });
+        window.scrollTo({ top: $('.contact').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
     var swiper = new Swiper('.swiper-container', {
