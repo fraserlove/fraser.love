@@ -181,7 +181,7 @@ header{
   outline: none;
 }
 
-.nav-link:hover, .nav-link:focus .nav-link:hover:before{
+.nav-link:hover{
   background: linear-gradient(to right, #1c6fd4, #531cd4);
   -webkit-background-clip: text;
   background-clip: text;
