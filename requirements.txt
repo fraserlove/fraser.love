@@ -2,4 +2,3 @@ gunicorn
 flask
 flask_mail
 flask-compress
-flask-caching
