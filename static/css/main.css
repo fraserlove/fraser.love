@@ -37,7 +37,6 @@ p{
 
 .section-heading h1{
   font-size: 8rem;
-  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to right, #35aae8, #531cd4);
   -webkit-background-clip: text;
   background-clip: text;
@@ -143,7 +142,6 @@ header{
 }
 
 .nav-link{
-  font-family: 'Montserrat', serif;
   font-size: 1.6rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -257,7 +255,6 @@ header{
 
 .landing-text h1{
   font-size: 20rem;
-  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to right, #35aae8, #531cd4);
   -webkit-background-clip: text;
   background-clip: text;
@@ -374,7 +371,6 @@ header{
 
 .about-details h6{
   font-size: 3rem;
-  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to right, #35aae8, #531cd4);
   -webkit-background-clip: text;
   background-clip: text;
@@ -494,7 +490,6 @@ input[type='text'], input[type='email'], textarea{
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   outline-width: 0px;
   caret-color: white;
@@ -543,7 +538,6 @@ input[type='submit']{
   border-radius: 3px;
   position: relative;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to right, #1c6fd4, #531cd4);
   -webkit-background-clip: text;
   background-clip: text;
