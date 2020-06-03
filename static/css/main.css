@@ -550,10 +550,6 @@ input[type='submit']{
   outline-width: 0px;
 }
 
-input[type='submit']:hover{
-  top: -1px;
-}
-
 .submit-button-bg:hover{
   background-color: #111111;
   top: -1px;
