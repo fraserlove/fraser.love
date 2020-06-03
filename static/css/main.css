@@ -113,6 +113,7 @@ header{
   border-radius: 5px;
   margin-top: 2rem;
   animation: flash-in 1s;
+  user-select: none;
 }
 
 .error{
