@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_mail import Mail, Message
 from flask_compress import Compress
-from flask_caching import Cache
+from flask_cache import Cache
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
 import os, datetime
