@@ -10,7 +10,7 @@ $(document).ready(function(){
 
     const pageDown = document.querySelector('.page-down');
     pageDown.addEventListener('click', function() {
-        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        window.scrollTo({ top: $('.about').offset().top - window.innerHeight / 4, behavior: 'smooth' });
     });
 
     const pageUp = document.querySelector('.page-up');
