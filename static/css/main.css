@@ -479,9 +479,7 @@ header{
   border-radius: 10px;
 }
 
-.youtube .bg-img{
-  background-position: center;
-  background-size: cover;
+.youtube .youtube-video-place img{
   display: inline-block;
   width: 800px;
   height: 450px;
@@ -1164,7 +1162,7 @@ input[type='submit']{
     font-size: 110px;
   }
 
-  .youtube .bg-img{
+  .youtube .youtube-video-place img{
     width: 640px;
     height: 360px;
   }
@@ -1244,7 +1242,7 @@ input[type='submit']{
     font-size: 90px;
   }
 
-  .youtube .bg-img{
+  .youtube .youtube-video-place img{
     width: 512px;
     height: 288px;
   }
@@ -1314,7 +1312,7 @@ input[type='submit']{
     font-size: 80px;
   }
 
-  .youtube .bg-img{
+  .youtube .youtube-video-place img{
     width: 384px;
     height: 216px;
   }
@@ -1431,7 +1429,7 @@ input[type='submit']{
     font-size: 70px;
   }
 
-  .youtube .bg-img{
+  .youtube .youtube-video-place img{
     width: 288px;
     height: 162px;
   }
@@ -1517,7 +1515,7 @@ input[type='submit']{
     font-size: 60px;
   }
 
-  .youtube .bg-img{
+  .youtube .youtube-video-place img{
     width: 192px;
     height: 108px;
   }
