@@ -59,7 +59,7 @@ def start_apis():
     return youtube_api, github_api
 
 @app.route('/')
-def home():
+def home(youtube_api, github_api):
     return render_template('main.html', 
     views=youtube_api.no_views, 
     subs=youtube_api.no_subs, 
