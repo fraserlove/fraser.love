@@ -4,3 +4,4 @@ flask_mail
 flask-compress
 google-api-python-client
 pygithub
+dateutil
