@@ -5,7 +5,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta name='description' content="I'm Fraser Love, a 17 year-old computer science student and software developer who enjoys reading theoretical computer science, developing software and library programming in Python and C++ and creating technology videos 
     on youtube. I am especially interested in physics simulations, graphics engines, artificial intelligence and quantum computing.">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=fallback" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=fallback" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='/css/main.css'>
     <link rel='stylesheet' href='https://unpkg.com/aos@next/dist/aos.css'/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
@@ -36,8 +36,13 @@
                     </button>
                 </li>
                 <li>
-                    <button class='portfolio-link nav-link'>
-                        <i class='nav-link'>Portfolio</i>
+                    <button class='development-link nav-link'>
+                        <i class='nav-link'>Development</i>
+                    <button'>
+                </li>
+                <li>
+                    <button class='youtube-link nav-link'>
+                        <i class='nav-link'>Youtube</i>
                     <button'>
                 </li>
                 <li>
@@ -56,7 +61,7 @@
         </button>
     </header>
 
-    <section class='about' id='about'>
+    <section class='about'>
         <div class='container'>
             <div class='about-details'>
                 <div class='section-heading'>
@@ -72,8 +77,8 @@
                     hard low level operations of computers and creating code which can be used and built upon by the community. I currently 
                     run Ubuntu, Arch and Windows 10 in a tri-boot setup on my computer and run with MacOS on my laptop.
                 </p><p>
-                    I have been uploading to my <b>YouTube channel for roughly four years</b> and in that time I have created <b>over 60 videos</b>, about programming 
-                    and technology in general. The channel currently has <b>500 subscribers</b> and <b>200,000 views</b> to which I try and upload to when I have the time. If 
+                    I have been uploading to my <b>YouTube channel for roughly four years</b> and in that time I have created <b>{{ videos }} videos</b>, about programming 
+                    and technology in general. The channel currently has <b>{{ subs }} subscribers</b> and <b>{{ views }} views</b> to which I try and upload to when I have the time. If 
                     you have any questions or want to contact me for another reason you can find a contact form at the bottom of the webpage.
                 </p>
                 <h6>Computer Specification</h6>
@@ -115,11 +120,74 @@
         </div>
     </section>
 
-    <section class='portfolio'>
+    <section class='development'>
         <div class='container'>
             <div class='section-heading'>
-                <h1>Portfolio</h1>
-                <h6>Open source software and web projects written in C++ and Python.</h6>
+                <h1>Development</h1>
+                <h6>I design and develop open source software written in Python and C++.</h6>
+            </div>
+            <ul>
+                <li>
+                    <h2>{{ public_repos }}</h2>
+                    <h3>Repositories</h3>
+                </li>
+                <li>
+                    <h2>{{ total_sloc }}</h2>
+                    <h3>Total SLOC</h3>
+                </li>
+                <li>
+                    <h2>{{ total_changes }}</h2>
+                    <h3>Total Changes</h3>
+                </li>
+                <li>
+                    <h2>{{ total_commits }}</h2>
+                    <h3>Total Commits</h3>
+                </li>
+                <li>
+                    <div class='profile-bd'>
+                        <a href='https://github.com/fraserlove'><img src='{{ gh_profile }}' alt=''></a>
+                    </div>
+                </li>
+                <li>
+                    <h2>{{ total_additions }}</h2>
+                    <h3>Total Additions</h3>
+                </li>
+                <li>
+                    <h2>{{ total_deletions }}</h2>
+                    <h3>Total Deletions</h3>
+                </li>
+                <li>
+                    <h2>{{ created_at }}</h2>
+                    <h3>Created</h3>
+                </li>
+            </ul>
+            <div class='yearly-stats-heading'>
+                <h3>Yearly Stats</h3>
+            </div>
+            <ul class='extra-stats'>
+                <li>
+                    <h2>{{ yearly_commits }}</h2>
+                    <h3>Yearly Commits</h3>
+                </li>
+                <li>
+                    <h2>{{ yearly_additions }}</h2>
+                    <h3>Yearly Additions</h3>
+                </li>
+                <li>
+                    <h2>{{ yearly_deletions }}</h2>
+                    <h3>Yearly Deletions</h3>
+                </li>
+                <li>
+                    <h2>{{ yearly_changes }}</h2>
+                    <h3>Yearly Changes</h3>
+                </li>
+                <li>
+                    <h2>{{ yearly_sloc }}</h2>
+                    <h3>Yearly SLOC</h3>
+                </li>
+            </ul>
+            <div class='yearly-stats-heading'>
+                <h3>Portfolio</h3>
             </div>
             <div class='portfolio-container'>
                 <div class="swiper-container">
@@ -134,10 +202,10 @@
                                     <p>
                                         Projects 3D objects made up of vertices, edges and surfaces onto a 2D display 
                                         and allows for object rotation, scaling and transation. Features a full GUI, world space lighting, saving and importing 
-                                        world sapces and easy object creation methods with pre made shapes such as spheres, polygons and cubes.
+                                        world sapces.
                                     </p>
                                     <a href='https://github.com/fraserlove/fl3d-engine' class='cta'>Source Code</a>
-                                    <a href='https://github.com/fraserlove/fl3d-engine/blob/master/Report.pdf' class='cta'>Documentation</a>
+                                    <a href='https://github.com/fraserlove/fl3d-engine/blob/master/docs/dev-report.pdf' class='cta'>Documentation</a>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +220,7 @@
                                         Graphs the time it takes for eleven sorting algorithms to sort through an array of ever increasing length to see
                                         which algorithm scales best as the number of elements increases.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/data-structures-and-algorithms/sorting-algorithm-time-complexity-graph' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/sorting-algorithms-and-visualisers/sorting-algorithm-time-complexity-graph' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=zGPKlSowtQ0' class='cta'>Youtube</a>
                                 </div>
                             </div>
@@ -168,7 +236,7 @@
                                         Displays an array being sorted by one of eleven sorting algorithms to visualise the algorithmic process of each
                                         algorithm.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/data-structures-and-algorithms/sorting-visualiser' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/sorting-algorithms-and-visualisers/sorting-visualiser' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=VYsJvfcipnU&t=130s' class='cta'>Youtube</a>
                                 </div>
                             </div>
@@ -184,7 +252,7 @@
                                         Simulates particles of random mass interacting and colliding with eachother using Newton's laws of motion and gravitation 
                                         with calculus.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/simulations/gravity_2d_simulation_3.0.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/simulations-and-generators/gravity-2d-simulation' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -198,7 +266,7 @@
                                     <p>
                                         Simulates the orbits of planets in our solar system using the same Newtonian physics that the 2D gravity simulation uses.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/simulations/solar_system_2d_simulation.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/simulations-and-generators/solar-system-2d-simulation' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +281,7 @@
                                         Projects 3D wireframes onto a 2D display in an orthographic projection. Allows for camera movement with object
                                         scaling and translation.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/3d-engine' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/graphics-and-games/3d-wireframe-engine' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +295,7 @@
                                     <p>
                                         Creates a infinite terrain using perlin generation to simulate real world terrain.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/simulations/perlin_noise_terrain_generator.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/simulations-and-generators/perlin-noise-terrain-generator' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +310,7 @@
                                         Simulates particles flowing through a field created with perlin noise and draws their movement 
                                         in a window.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/simulations/perlin-noise-flow-field-trails' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/simulations-and-generators/perlin-noise-flow-field' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -257,7 +325,7 @@
                                         Creates unique fractal trees by infinitely branching off the tree root with some random branch lengths
                                         and angles to better simulate real trees.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/simulations/fractal-trees' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/simulations-and-generators/fractal-trees-generator' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +340,7 @@
                                         A cellular automaton with three basic rules used to simulate living organisms in a matrix of pixel values with two defined
                                         states, dead and alive. These basic rules create complex outcomes and approximate the movement of cellular life.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/cellular-automata/conways_game_of_life.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/cellular-automata/conways-game-of-life' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=YQyQyxtLvi8&t=68s' class='cta'>Youtube</a>
                                 </div>
                             </div>
@@ -286,10 +354,9 @@
                                 <div class='portfolio-description'>
                                     <p>
                                         A cellular automaton used to simulate living organisms whereby one has the objective to multiply and the other has the objective to
-                                        delete the other organism. The system can become in a state of eqilibrium whereby the population of each organism remains constant or 
-                                        can be dominated by either the predator and prey populations depending on various parameters.
+                                        delete the other organism.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/cellular-automata/predator_and_prey.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/cellular-automata/predator-and-prey' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=YQyQyxtLvi8&t=175s' class='cta'>Youtube</a>
                                 </div>
                             </div>
@@ -305,7 +372,7 @@
                                         A cellular automaton used to simulate electrical circuits whereby objects can travel down pre-defined wires. Complex logic can be created 
                                         using the basic rules combined with logic gates, giving rise to the ability to create basic calculators and computers within the automaton.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/cellular-automata/wire_world.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/blob/master/cellular-automata/wire_world' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=YQyQyxtLvi8&t=256s' class='cta'>Youtube</a>
                                 </div>
                             </div>
@@ -321,7 +388,7 @@
                                         A cellular automaton that simulates an ant moving across a matrix of pixels according to a set of rules. The ant moves seemingly random based on 
                                         the rules to either turn left or right depending on the value of the pixel ahead which can have a binary value of true or false.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/cellular-automata/langtons_ant.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/blob/master/cellular-automata/langtons_ant' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=YQyQyxtLvi8&t=115s' class='cta'>Youtube</a>
                                 </div>
                             </div>
@@ -336,25 +403,24 @@
                                     <p>
                                         A cellular automation that simulates moving and interaction organisms according to basic rules to create complex systems.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/cellular-automata/brians_brain.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/blob/master/cellular-automata/brians_brain' class='cta'>Source Code</a>
                                     <a href='https://www.youtube.com/watch?v=YQyQyxtLvi8' class='cta'>Youtube</a>
                                 </div>
                             </div>
                         </div>
                         <div class='swiper-slide'>
                             <div class='portfolio-item'>
-                                <h2>Automatic Reporting Software (EES Project)</h2>
+                                <h2>Automatic Reporting Software</h2>
                                 <div class='portfolio-img'>
                                     <img src='/images/ees-project.webp' alt=''>
                                 </div>
                                 <div class='portfolio-description'>
                                     <p>
                                         Specilised software that allow for the easy reporting of faults within manufacturing. The program includes automatic report filling with 
-                                        ai speech to text and image to text assistance. Furthermore the program includes text and email chat to allow for easy communication 
-                                        between engineers.
+                                        ai speech to text and image to text assistance.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/ees-project' class='cta'>Source Code</a>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/ees-project/dev_report.pdf' class='cta'>Documentation</a>
+                                    <a href='https://github.com/fraserlove/automatic-reporting-system/tree/master/src' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/automatic-reporting-system/blob/master/docs/dev_report.pdf' class='cta'>Documentation</a>
                                 </div>
                             </div>
                         </div>
@@ -368,7 +434,7 @@
                                     <p>
                                         A python implementation of the game snake where a user controls a snake and tries to eat food to get longer.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/games/snake.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/graphics-and-games/2d-games/snake' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -383,7 +449,7 @@
                                         A neural network that classifies handwriting of the digits 0-9 from the mnist data set. The input and output layer have 784 and 10 
                                         nodes respectively and three hidden layers of 500 nodes each.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/machine-learning-and-ai' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/machine-learning-and-ai/handwriting-classifier' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +464,7 @@
                                         Uses quantum gates to add two qbits together. Firstly a truth table is printed to show the quantum full adder working properly and 
                                         then it adds two superpositions together. Is executed on the IMBQ experience quantum computers.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/quantum-programs/full_adder.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/quantum-algorithms/full-adder' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -412,7 +478,7 @@
                                     <p>
                                         Encodes and decodes ASCII to Base64 without using pre defined functions to help understand the algorithm behind the program.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/tree/master/tools' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/general-algorithms/encoders-and-decoders/ascii-to-base64' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -425,24 +491,9 @@
                                 <div class='portfolio-description'>
                                     <p>
                                         Compresses and decompresses any text based files using huffman compression and huffman trees.For compression the prgram generates a frequency dictionary based
-                                        on the frequency of characters in the text file. A heap is then created and is used to calculate codes to for each character.
+                                        on the frequency of characters in the text file.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/tools/huffman_coding_compression_and_decompression.py' class='cta'>Source Code</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='swiper-slide'>
-                            <div class='portfolio-item'>
-                                <h2>Keylogger with Email Feedback</h2>
-                                <div class='portfolio-img'>
-                                    <img src='/images/keylogger.webp' alt=''>
-                                </div>
-                                <div class='portfolio-description'>
-                                    <p>
-                                        Logs keys pressed by a user with features like removing the last character endered if backspace is pressed. The logs are then sent by
-                                        email to the attacker after a specified interval.
-                                    </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/tools/keylogger_and_email.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/general-algorithms/compression-algorithms/huffman-coding' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -456,21 +507,7 @@
                                     <p>
                                         A python implementation of the MD5 hashing algorithm modeled from the RFC design at https://www.ietf.org/rfc/rfc1321.txt.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/tools/md5_algorithm.py' class='cta'>Source Code</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='swiper-slide'>
-                            <div class='portfolio-item'>
-                                <h2>Password Generator</h2>
-                                <div class='portfolio-img'>
-                                    <img src='/images/password-generator.webp' alt=''>
-                                </div>
-                                <div class='portfolio-description'>
-                                    <p>
-                                        A terminal based password generator to generate and store passwords and other information.
-                                    </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/tools/password_generator.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/general-algorithms/hashing-algorithms/md5' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -485,7 +522,7 @@
                                         Creates a string to represent a polynomial that can be constructed from the rational roots passed in to the program. The roots passed in 
                                         can be fractions, decimals and recurring decimals.
                                     </p>
-                                    <a href='https://github.com/fraserlove/python-projects/blob/master/tools/polynomial%20constructor.py' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/python-algorithms-and-simulations/tree/master/general-algorithms/algebraic-algorithms/polynomial-constructor' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -500,7 +537,7 @@
                                         An C++ implementation of the stack abstract data structure using my own implementation of singly linked lists 
                                         to create a stack class.
                                     </p>
-                                    <a href='https://github.com/fraserlove/cpp-visualstudio-projects/tree/master/DataStructures/Stack' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/data-structures/tree/master/Stack' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -515,7 +552,7 @@
                                         An C++ implementation of the singly linked list data structure with an extra tail pointer included for constant time 
                                         insertion at the end of the linked list.
                                     </p>
-                                    <a href='https://github.com/fraserlove/cpp-visualstudio-projects/tree/master/DataStructures/SinglyLinkedList' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/data-structures/tree/master/SinglyLinkedList' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -530,7 +567,7 @@
                                         An C++ implementation of the queue abstract data structure using my own implementation of singly linked lists 
                                         to create a queue class.
                                     </p>
-                                    <a href='https://github.com/fraserlove/cpp-visualstudio-projects/tree/master/DataStructures/Queue' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/data-structures/tree/master/Queue' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -545,7 +582,7 @@
                                         An C++ implementation of the priority queue abstract data structure using binary heaps. Can be configured to be either 
                                         a max or min priority queue. Binary heaps are implemented using my own dynamic array class.
                                     </p>
-                                    <a href='https://github.com/fraserlove/cpp-visualstudio-projects/tree/master/DataStructures/PriorityQueue' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/data-structures/tree/master/PriorityQueue' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -560,32 +597,85 @@
                                         An C++ implementation of the dynamic array abstract data structure using static arrays with dynamic resizing. The rate of 
                                         dynamic resizing for growth and decay can be controlled for either, shorter average Pop(), Push(), Insert() and Remove() calls, or improved space complexity.
                                     </p>
-                                    <a href='https://github.com/fraserlove/cpp-visualstudio-projects/tree/master/DataStructures/DynamicArray' class='cta'>Source Code</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class='swiper-slide'>
-                            <div class='portfolio-item'>
-                                <h2>Bull Cow Game</h2>
-                                <div class='portfolio-img'>
-                                    <img src='/images/bull-cow-game.webp' alt=''>
-                                </div>
-                                <div class='portfolio-description'>
-                                    <p>
-                                        A terminal game in which a user has to guess a word in a certain amount of tries.
-                                    </p>
-                                    <a href='https://github.com/fraserlove/cpp-visualstudio-projects/tree/master/BullCowGame' class='cta'>Source Code</a>
+                                    <a href='https://github.com/fraserlove/data-structures/tree/master/DynamicArray' class='cta'>Source Code</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
                 </div>
+            </div>
+            <div class='github-button-bg'>
+                <a class='github-button' href='https://github.com/fraserlove'>View me on Github</a>
             </div>
         </div>
     </section>
 
-    <section class='contact' id='contact'>
+    <section class='youtube'>
+        <div class='container'>
+            <div class='section-heading'>
+                <h1>Youtube</h1>
+                <h6>I create software and web tutorials, programming projects and technology guide videos.</h6>
+            </div>
+            <ul>
+                <li>
+                    <h2>{{ views }}</h2>
+                    <h3>Views</h3>
+                </li>
+                <li>
+                    <h2>{{ hours }}</h2>
+                    <h3>Hours Uploaded</h3>
+                </li>
+                <li>
+                    <h2>{{ likes }}</h2>
+                    <h3>Likes</h3>
+                </li>
+                <li>
+                    <div class='profile-bd'>
+                        <a href='https://www.youtube.com/fraserlove'><img src='{{ yt_profile }}' alt=''></a>
+                    </div>
+                </li>
+                <li>
+                    <h2>{{ subs }}</h2>
+                    <h3>Subs</h3>
+                </li>
+                <li>
+                    <h2>{{ videos }}</h2>
+                    <h3>Videos</h3>
+                </li>
+                <li>
+                    <h2>{{ comments }}</h2>
+                    <h3>Comments</h3>
+                </li>
+                <li>
+                    <h2>{{ joined }}</h2>
+                    <h3>Joined</h3>
+                </li>
+            </ul>
+            <div class='uploads-heading'>
+                <h3>Latest Uploads</h3>
+            </div>
+            <div class='uploads-container'>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    {% for video_id in video_ids[:8] %}
+                        <div class="swiper-slide">
+                            <iframe src='https://www.youtube.com/embed/{{ video_id }}' frameborder='0' 
+                            allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class='channel-button-bg'>
+                <a class='channel-button' href='https://www.youtube.com/fraserlove'>Visit Channel</a>
+            </div>
+        </div>
+    </section>
+
+    <section class='contact'>
         <div class='container'>
             <div class='section-heading'>
                 <h1>Contact Me</h1>
@@ -656,7 +746,7 @@
                     </li>
                 </ul>
             </div>
-            <p>&copy; 2020 Fraser Love</p>
+            <p>&copy; 2020 Fraser Love<br><br><i>Statistics for GitHub and Youtube are updated hourly</i></p>
         </div>
     </footer>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>

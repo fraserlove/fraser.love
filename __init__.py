@@ -3,7 +3,9 @@ from flask_mail import Mail, Message
 from flask_compress import Compress
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
-import os, datetime, time
+import os, datetime, time, dateutil.parser
+
+from tasks import YouTube_API, GitHub_API
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 app.secret_key = os.environ.get('SECRET_KEY')
@@ -17,21 +19,22 @@ app.config['MAIL_PASSWORD'] = os.environ.get('SENDER_PASS')
 mail = Mail(app)
 Compress(app)
 
-msg_timeout = 3600
+msg_timeout = 3600  # 1 hour
+api_rest = 3600 # 1 hour
 
-@app.before_request
-def redirect_https():
-    if request.url.startswith('http://'):
-        url = request.url.replace('http://', 'https://', 1)
-        return redirect(url, code=301)
+#@app.before_request
+#def redirect_https():
+#    if request.url.startswith('http://'):
+#        url = request.url.replace('http://', 'https://', 1)
+#        return redirect(url, code=301)
 
-@app.before_request
-def redirect_www():
-    urlparts = urlparse(request.url)
-    if urlparts.netloc == 'www.fraser.love':
-        urlparts_list = list(urlparts)
-        urlparts_list[1] = 'fraser.love'
-        return redirect(urlunparse(urlparts_list), code=301)
+#@app.before_request
+#def redirect_www():
+#    urlparts = urlparse(request.url)
+#    if urlparts.netloc == 'www.fraser.love':
+#        urlparts_list = list(urlparts)
+#        urlparts_list[1] = 'fraser.love'
+#        return redirect(urlunparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
     with app.app_context():
@@ -40,13 +43,47 @@ def async_send_mail(app, msg):
 def send_mail(subject, sender, recipient, template):
     msg = Message(subject, sender=sender, recipients=[recipient])
     msg.html = template
-    thread = Thread(target=async_send_mail, args=[app, msg])
-    thread.start()
-    return thread
+    mail_thread = Thread(target=async_send_mail, args=[app, msg])
+    mail_thread.start()
+    return mail_thread
+
+def start_apis():
+    youtube_api = YouTube_API()
+    youtube_thread = Thread(target=youtube_api.youtube_api_task, args=[api_rest])
+    youtube_thread.daemon = True
+    youtube_thread.start()
+    github_api = GitHub_API()
+    github_thread = Thread(target=github_api.github_api_task, args=[api_rest])
+    github_thread.daemon = True
+    github_thread.start()
+    return youtube_api, github_api
 
 @app.route('/')
 def home():
-    return render_template('main.html')
+    return render_template('main.html', 
+    views=youtube_api.no_views, 
+    subs=youtube_api.no_subs, 
+    videos=youtube_api.no_videos, 
+    hours=youtube_api.no_hours, 
+    likes=youtube_api.no_likes,
+    comments=youtube_api.no_comments,
+    joined=youtube_api.joined,  
+    yt_profile=youtube_api.profile, 
+    video_ids=youtube_api.video_ids,
+    gh_profile=github_api.profile,
+    public_repos=github_api.public_repos,
+    created_at=github_api.created_at,
+    yearly_commits=github_api.yearly_commits,
+    total_commits=github_api.total_commits,
+    yearly_additions=github_api.yearly_additions,
+    yearly_deletions=github_api.yearly_deletions,
+    yearly_changes=github_api.yearly_changes,
+    yearly_sloc=github_api.yearly_sloc,
+    total_additions=github_api.total_additions,
+    total_deletions=github_api.total_deletions,
+    total_changes=github_api.total_changes,
+    total_sloc=github_api.total_sloc
+    )
 
 @app.errorhandler(Exception)
 def page_not_found(error):
@@ -91,4 +128,5 @@ def contact():
     return response
 
 if __name__ == '__main__':
-    app.run()
+    youtube_api, github_api = start_apis()
+    app.run(debug=True)

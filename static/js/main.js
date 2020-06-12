@@ -1,9 +1,18 @@
 $(document).ready(function(){
+
     $('.menu-toggler').on('click', function() {
         $(this).toggleClass('open');
+        $('.nav-list').toggleClass('open');
         $('.top-nav').toggleClass('open');
-    });
 
+        if ($('.nav-list').hasClass('open')) {
+            $('.top-nav').removeClass('closed');
+            $('.nav-list').removeClass('closed');
+        } else {
+            $('.top-nav').addClass('closed');
+            $('.nav-list').addClass('closed');
+        }
+    });
     ScrollOut({
         targets: '.about-details h1, .about-details p, .about-details h6, .about-details table'
     });
@@ -18,8 +27,9 @@ $(document).ready(function(){
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    $('.top-nav .nav-link').on('click', function() {
+    $('.nav-list .nav-link').on('click', function() {
         $('.menu-toggler').removeClass('open');
+        $('.nav-list').removeClass('open');
         $('.top-nav').removeClass('open');
     });
 
@@ -28,9 +38,14 @@ $(document).ready(function(){
         window.scrollTo({ top: $('.about').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
-    const portfolioScroll = document.querySelector('.portfolio-link');
-    portfolioScroll.addEventListener('click', function() {
-        window.scrollTo({ top: $('.portfolio').offset().top - window.innerHeight / 5, behavior: 'smooth' });
+    const developmentScroll = document.querySelector('.development-link');
+    developmentScroll.addEventListener('click', function() {
+        window.scrollTo({ top: $('.development').offset().top - window.innerHeight / 5, behavior: 'smooth' });
+    });
+
+    const youtubeScroll = document.querySelector('.youtube-link');
+    youtubeScroll.addEventListener('click', function() {
+        window.scrollTo({ top: $('.youtube').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
     const contactScroll = document.querySelector('.contact-link');
