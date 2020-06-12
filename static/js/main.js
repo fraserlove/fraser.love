@@ -1,10 +1,6 @@
 $(document).ready(function(){
 
-    $('.lazyload').lazyload({
-        threshold: 200,
-        load: function(element) {},
-        trigger: "appear"
-      });
+    $('.lazyload').lazyload();
 
     $('.menu-toggler').on('click', function() {
         $(this).toggleClass('open');
