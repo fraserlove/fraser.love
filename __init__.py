@@ -22,19 +22,19 @@ Compress(app)
 msg_timeout = 3600  # 1 hour
 api_rest = 3600 # 1 hour
 
-@app.before_request
-def redirect_https():
-    if request.url.startswith('http://'):
-        url = request.url.replace('http://', 'https://', 1)
-        return redirect(url, code=301)
+#@app.before_request
+#def redirect_https():
+#    if request.url.startswith('http://'):
+#        url = request.url.replace('http://', 'https://', 1)
+#        return redirect(url, code=301)
 
-@app.before_request
-def redirect_www():
-    urlparts = urlparse(request.url)
-    if urlparts.netloc == 'www.fraser.love':
-        urlparts_list = list(urlparts)
-        urlparts_list[1] = 'fraser.love'
-        return redirect(urlunparse(urlparts_list), code=301)
+#@app.before_request
+#def redirect_www():
+#    urlparts = urlparse(request.url)
+#    if urlparts.netloc == 'www.fraser.love':
+#        urlparts_list = list(urlparts)
+#        urlparts_list[1] = 'fraser.love'
+#        return redirect(urlunparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
     with app.app_context():
@@ -64,13 +64,13 @@ def home():
     return render_template('main.html', 
     views=youtube_api.no_views, 
     subs=youtube_api.no_subs, 
-    videos=youtube_api.no_videos, 
+    no_videos=youtube_api.no_videos, 
     hours=youtube_api.no_hours, 
     likes=youtube_api.no_likes,
     comments=youtube_api.no_comments,
     joined=youtube_api.joined,  
     yt_profile=youtube_api.profile, 
-    video_ids=youtube_api.video_ids,
+    videos= zip(youtube_api.video_ids[:8], youtube_api.video_thumbnails[:8]),
     gh_profile=github_api.profile,
     public_repos=github_api.public_repos,
     created_at=github_api.created_at,
@@ -130,4 +130,4 @@ def contact():
 
 youtube_api, github_api = start_apis()
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

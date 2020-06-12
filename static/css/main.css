@@ -479,6 +479,13 @@ header{
   border-radius: 10px;
 }
 
+.youtube .youtube-video-place img{
+  display: inline-block;
+  width: 800px;
+  height: 450px;
+  border-radius: 10px;
+}
+
 .youtube .swiper-container{
   position: relative;
   margin: 0rem 8rem;
@@ -521,6 +528,33 @@ header{
   border-radius: 2px;
   margin-top: 41px;
   padding: 0.5rem 0rem;
+}
+
+.youtube .uploads-container i{
+  font-size: 120px;
+  position: absolute;
+  background: linear-gradient(to right, #35aae8, #531cd4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.youtube .play-button{
+  opacity: 0.8;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.youtube .play-button:hover{
+  opacity: 1;
 }
 
 /* end youtube */
@@ -869,7 +903,7 @@ input[type='submit']{
   align-items: center;
 }
 
-.fa{
+.social-media .fa{
   font-size: 5rem;
   color: #ffffff;
   transition: color 0.4s;
@@ -877,7 +911,7 @@ input[type='submit']{
   transform: translate(-50%, 0);
 }
 
-.fa:hover, .fa:hover{
+.social-media .fa:hover, .social-media .fa:hover{
   background: linear-gradient(to right, #1c6fd4, #531cd4);
   top: -3px;
   -webkit-background-clip: text;
@@ -1124,6 +1158,15 @@ input[type='submit']{
     height: 360px;
   }
 
+  .youtube .uploads-container i{
+    font-size: 110px;
+  }
+
+  .youtube .youtube-video-place img{
+    width: 640px;
+    height: 360px;
+  }
+
 }
 
 @media screen and (max-width: 992px){
@@ -1194,6 +1237,15 @@ input[type='submit']{
     width: 512px;
     height: 288px;
   }
+
+  .youtube .uploads-container i{
+    font-size: 90px;
+  }
+
+  .youtube .youtube-video-place img{
+    width: 512px;
+    height: 288px;
+  }
 }
 
 @media screen and (max-width: 768px){
@@ -1252,6 +1304,15 @@ input[type='submit']{
   }
 
   .youtube iframe{
+    width: 384px;
+    height: 216px;
+  }
+
+  .youtube .uploads-container i{
+    font-size: 80px;
+  }
+
+  .youtube .youtube-video-place img{
     width: 384px;
     height: 216px;
   }
@@ -1363,6 +1424,15 @@ input[type='submit']{
     width: 288px;
     height: 162px;
   }
+
+  .youtube .uploads-container i{
+    font-size: 70px;
+  }
+
+  .youtube .youtube-video-place img{
+    width: 288px;
+    height: 162px;
+  }
 }
 
 @media screen and (max-width: 480px){
@@ -1437,6 +1507,15 @@ input[type='submit']{
   }
 
   .youtube iframe{
+    width: 192px;
+    height: 108px;
+  }
+
+  .youtube .uploads-container i{
+    font-size: 60px;
+  }
+
+  .youtube .youtube-video-place img{
     width: 192px;
     height: 108px;
   }

@@ -99,21 +99,8 @@ $(document).ready(function(){
             $('.flash').fadeOut('fast');
         }, 3500);
 
-    function youTubes_makeDynamic() {
-        var $ytIframes = $('iframe[src*="youtube.com"]');
-        $ytIframes.each(function (i,e) {
-            var $ytFrame = $(e);
-            var ytKey; var tmp = $ytFrame.attr('src').split(/\//); tmp = tmp[tmp.length - 1]; tmp = tmp.split('?'); ytKey = tmp[0];
-            var $ytLoader = $('<div class="ytLoader">');
-            $ytLoader.append($('<img class="cover" src="https://i.ytimg.com/vi/'+ytKey+'/hqdefault.jpg">'));
-            $ytLoader.append($('<img class="playBtn" src="play_button.png">'));
-            $ytLoader.data('$ytFrame',$ytFrame);
-            $ytFrame.replaceWith($ytLoader);
-            $ytLoader.click(function () {
-                var $ytFrame = $ytLoader.data('$ytFrame');
-                $ytFrame.attr('src',$ytFrame.attr('src')+'?autoplay=1');
-                $ytLoader.replaceWith($ytFrame);
-            });
-        });
-    };
+    var video_wrapper = $('.youtube-video-place');
+    if(video_wrapper.length){
+    $('.youtube-video-place').on('click', function(){
+    $('#'+this.id).html('<iframe allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="embed-responsive-item" src="' + $(this).data("yt-url") + '"></iframe>');});}
 });

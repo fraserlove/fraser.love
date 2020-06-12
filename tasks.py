@@ -15,6 +15,7 @@ class YouTube_API():
         self.joined = ''
         self.profile = ''
         self.video_ids = []
+        self.video_thumbnails = []
 
     def youtube_api_task(self, rest):
         while True:
@@ -27,10 +28,11 @@ class YouTube_API():
             yt_channel = yt_channel_request.execute()
 
             uploads_id = yt_channel['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+            self.video_ids, self.video_thumbnails = [], []
             next_page_token = ''
             while next_page_token != None:
                 yt_uploads_request = self.youtube.playlistItems().list(
-                    part='contentDetails',
+                    part='contentDetails, snippet',
                     playlistId=uploads_id,
                     pageToken=next_page_token,
                     maxResults=50
@@ -38,6 +40,7 @@ class YouTube_API():
                 yt_uploads = yt_uploads_request.execute()
                 for upload in yt_uploads['items']:
                     self.video_ids.append(upload['contentDetails']['videoId'])
+                    self.video_thumbnails.append(upload['snippet']['thumbnails']['maxres']['url'])
                 
                 try:
                     next_page_token = yt_uploads['nextPageToken']

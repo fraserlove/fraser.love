@@ -77,7 +77,7 @@
                     hard low level operations of computers and creating code which can be used and built upon by the community. I currently 
                     run Ubuntu, Arch and Windows 10 in a tri-boot setup on my computer and run with MacOS on my laptop.
                 </p><p>
-                    I have been uploading to my <b>YouTube channel for roughly four years</b> and in that time I have created <b>{{ videos }} videos</b>, about programming 
+                    I have been uploading to my <b>YouTube channel for roughly four years</b> and in that time I have created <b>{{ no_videos }} videos</b>, about programming 
                     and technology in general. The channel currently has <b>{{ subs }} subscribers</b> and <b>{{ views }} views</b> to which I try and upload to when I have the time. If 
                     you have any questions or want to contact me for another reason you can find a contact form at the bottom of the webpage.
                 </p>
@@ -638,7 +638,7 @@
                     <h3>Subs</h3>
                 </li>
                 <li>
-                    <h2>{{ videos }}</h2>
+                    <h2>{{ no_videos }}</h2>
                     <h3>Videos</h3>
                 </li>
                 <li>
@@ -656,10 +656,14 @@
             <div class='uploads-container'>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                    {% for video_id in video_ids[:8] %}
+                    {% for video_id, video_thumbnail in videos %}
                         <div class="swiper-slide">
-                            <iframe src='https://www.youtube.com/embed/{{ video_id }}' frameborder='0' 
-                            allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>
+                            <div id='video-{{ video_id }}' class="youtube-video-place embed-responsive embed-responsive-4by3 " data-yt-url="https://www.youtube.com/embed/{{ video_id }}?rel=0&showinfo=0&autoplay=1">
+                                <img src= '{{ video_thumbnail }}' async>
+                                <div class='play-button'>
+                                    <i class='fa fa-play'></i>
+                                </div>
+                            </div>
                         </div>
                     {% endfor %}
                     </div>
