@@ -146,5 +146,6 @@ class GitHub_API():
             self.total_changes = '{:,}'.format(int(self.total_changes))
             self.yearly_sloc = '{:,}'.format(int(self.yearly_sloc))
             self.total_sloc = '{:,}'.format(int(self.total_sloc))
+
             print('GitHub API: Updated Github Stats')
             time.sleep(rest)
