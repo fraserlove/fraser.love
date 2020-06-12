@@ -61,6 +61,7 @@ def start_apis():
 @app.route('/')
 def home():
     global youtube_api, github_api
+    
     return render_template('main.html', 
     views=youtube_api.no_views, 
     subs=youtube_api.no_subs, 
