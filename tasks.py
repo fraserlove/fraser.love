@@ -84,6 +84,7 @@ class GitHub_API():
     def __init__(self):
         self.github = Github(os.environ.get('GITHUB_ACCESS_TOKEN'))
         self.profile = ''
+        self.created_at = ''
         self.public_repos = ''
         self.yearly_commits = 0
         self.total_commits = 0
