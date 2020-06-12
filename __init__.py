@@ -22,6 +22,8 @@ Compress(app)
 msg_timeout = 3600  # 1 hour
 api_rest = 3600 # 1 hour
 
+youtube_api, github_api = start_apis()
+
 @app.before_request
 def redirect_https():
     if request.url.startswith('http://'):
@@ -129,5 +131,4 @@ def contact():
     return response
 
 if __name__ == '__main__':
-    youtube_api, github_api = start_apis()
     app.run()
