@@ -128,6 +128,6 @@ def contact():
     flash(flash_message, flash_type)
     return response
 
+youtube_api, github_api = start_apis()
 if __name__ == '__main__':
-    youtube_api, github_api = start_apis()
     app.run()
