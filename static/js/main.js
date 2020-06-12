@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-    $('.lazyload').lazyload();
-
     $('.menu-toggler').on('click', function() {
         $(this).toggleClass('open');
         $('.nav-list').toggleClass('open');
