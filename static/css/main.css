@@ -1155,7 +1155,7 @@ input[type='submit']{
     width: 640px;
   }
 
-  .youtube iframe{
+  .youtube iframe, .youtube .thumbnail{
     width: 640px;
     height: 360px;
   }
@@ -1163,12 +1163,6 @@ input[type='submit']{
   .youtube .uploads-container i{
     font-size: 110px;
   }
-
-  .youtube .thumbnail{
-    width: 640px;
-    height: 360px;
-  }
-
 }
 
 @media screen and (max-width: 992px){
@@ -1235,18 +1229,13 @@ input[type='submit']{
     width: 512px;
   }
 
-  .youtube iframe{
+  .youtube iframe, .youtube .thumbnail{
     width: 512px;
     height: 288px;
   }
 
   .youtube .uploads-container i{
     font-size: 90px;
-  }
-
-  .youtube .thumbnail{
-    width: 512px;
-    height: 288px;
   }
 }
 
@@ -1305,18 +1294,13 @@ input[type='submit']{
     width: 384px;
   }
 
-  .youtube iframe{
+  .youtube iframe, .youtube .thumbnail{
     width: 384px;
     height: 216px;
   }
 
   .youtube .uploads-container i{
     font-size: 80px;
-  }
-
-  .youtube .thumbnail{
-    width: 384px;
-    height: 216px;
   }
 }
 
@@ -1422,18 +1406,13 @@ input[type='submit']{
     width: 288px;
   }
 
-  .youtube iframe{
+  .youtube iframe, .youtube .thumbnail{
     width: 288px;
     height: 162px;
   }
 
   .youtube .uploads-container i{
     font-size: 70px;
-  }
-
-  .youtube .thumbnail{
-    width: 288px;
-    height: 162px;
   }
 }
 
@@ -1494,7 +1473,6 @@ input[type='submit']{
     font-size: 2.8rem;
   }
 
-
   .container li img{
     width: 70px;
     margin: 0.3rem;
@@ -1504,22 +1482,21 @@ input[type='submit']{
     margin: 0rem 5rem;
   }
 
-  .youtube .swiper-slide:nth-child(n){
-    width: 192px;
+  .youtube .uploads-container{
+    width: 100%;
   }
 
-  .youtube iframe{
-    width: 192px;
-    height: 108px;
+  .youtube .swiper-slide:nth-child(n){
+    width: 288px;
+  }
+
+  .youtube iframe, .youtube .thumbnail{
+    width: 288px;
+    height: 162px;
   }
 
   .youtube .uploads-container i{
     font-size: 60px;
-  }
-
-  .youtube .thumbnail{
-    width: 192px;
-    height: 108px;
   }
 }
 
