@@ -40,7 +40,7 @@ class YouTube_API():
                 yt_uploads = yt_uploads_request.execute()
                 for upload in yt_uploads['items']:
                     self.video_ids.append(upload['contentDetails']['videoId'])
-                    self.video_thumbnails.append(upload['snippet']['thumbnails']['maxres']['url'])
+                    self.video_thumbnails.append(upload['snippet']['thumbnails']['standard']['url'])
                 
                 try:
                     next_page_token = yt_uploads['nextPageToken']
