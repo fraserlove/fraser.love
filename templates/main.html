@@ -659,7 +659,7 @@
                     {% for video_id, video_thumbnail in videos %}
                         <div class="swiper-slide">
                             <div id='video-{{ video_id }}' class="youtube-video-place embed-responsive embed-responsive-4by3 " data-yt-url="https://www.youtube.com/embed/{{ video_id }}?rel=0&showinfo=0&autoplay=1">
-                                <img src= '{{ video_thumbnail }}' async>
+                                <div class='bg-img' async style="background-image: url('{{ video_thumbnail }}');"></div>
                                 <div class='play-button'>
                                     <i class='fa fa-play'></i>
                                 </div>
