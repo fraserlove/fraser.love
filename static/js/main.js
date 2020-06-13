@@ -92,10 +92,6 @@ $(document).ready(function(){
           el: '.swiper-pagination',
           dynamicBullets: true,
         },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-          },
     });
 
     var swiper = new Swiper('.swiper-container-publications', {
