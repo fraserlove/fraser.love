@@ -163,12 +163,6 @@
 
 
 @media screen and (max-width: 992px){
-  .view .publications-container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   .view .publications-container img{
     width: 80rem;
@@ -180,12 +174,6 @@
 }
 
 @media screen and (max-width: 768px){
-  .view .publications-container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   .view .publications-container img{
     width: 60rem;
@@ -197,12 +185,6 @@
 }
 
 @media screen and (max-width: 600px){
-  .view .publications-container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   .view .publications-container img{
     width: 50rem;
@@ -214,12 +196,6 @@
 }
 
 @media screen and (max-width: 480px){
-  .view .publications-container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
 
   .view .publications-container img{
     width: 40rem;
