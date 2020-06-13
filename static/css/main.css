@@ -755,41 +755,31 @@ header{
   margin-bottom: 8rem;
 }
 
-.publications .view-publication-button{
-  border: none;
-  text-transform: uppercase;
-  font-size: 1.6rem;
-  font-weight: 700;
-  padding: 0.4rem 1rem;
-  border-radius: 3px;
-  background: linear-gradient(to right, #1c6fd4, #531cd4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  user-select: none;
-}
-
-.publications .view-publication-button-bg:hover{
-  background-color: #0e0e0e;
-  margin-top: 40px;
-}
-
-.publications .view-publication-button-bg:active{
-  opacity: 0.5;
-}
-
-.publications .view-publication-button-bg{
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%,-100%);
-  background-color: #141414;
-  border-radius: 2px;
-  margin-top: 41px;
-  padding: 0.5rem 0rem;
-}
-
 .publications{
   margin-bottom: 40rem;
+}
+
+.publications .cover{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, #1c6fd4, #531cd4);
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.publications .cover:hover{
+  opacity: 0.4;
+}
+
+.publications .cover i{
+  font-size: 6rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* end publications */
