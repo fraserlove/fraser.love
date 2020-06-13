@@ -48,12 +48,35 @@ $(document).ready(function(){
         window.scrollTo({ top: $('.youtube').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
+    const publicationsScroll = document.querySelector('.publications-link');
+    publicationsScroll.addEventListener('click', function() {
+        window.scrollTo({ top: $('.publications').offset().top - window.innerHeight / 5, behavior: 'smooth' });
+    });
+
     const contactScroll = document.querySelector('.contact-link');
     contactScroll.addEventListener('click', function() {
         window.scrollTo({ top: $('.contact').offset().top - window.innerHeight / 5, behavior: 'smooth' });
     });
 
-    var swiper = new Swiper('.swiper-container', {
+    var swiper = new Swiper('.swiper-container-portfolio', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 25,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows : true,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          dynamicBullets: true,
+        },
+    });
+
+    var swiper = new Swiper('.swiper-container-youtube', {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
@@ -73,6 +96,24 @@ $(document).ready(function(){
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           },
+    });
+
+    var swiper = new Swiper('.swiper-container-publications', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        coverflowEffect: {
+            rotate: 25,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows : true,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          dynamicBullets: true,
+        },
     });
 
     $('input').focus(

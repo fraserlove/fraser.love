@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=fallback" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel='stylesheet' type='text/css' href='/css/view.css'>
+    <link rel="icon" type="image/png" href='/images/favicon.ico'>
+    <title>Fraser Love | View Publication</title>
+</head>
+<body>
+    <section class='view'>
+        <div class='container'>
+            <div class='publications-container'>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    {% for i in range(pdf_len) %}
+                        <div class="swiper-slide">
+                            <img src='/images/pdf-images/{{ pdf }}/{{ pdf }}-{{ i }}.jpg'>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div class='button-bg'>
+                    <a class='view-publication-button' href='/'>Go Back</a>
+                </div>
+            </li>
+            <li>
+                <div class='button-bg'>
+                    <a class='view-publication-button' href='/files/{{ pdf }}.pdf' download>Download PDF</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <script src='/js/view.js'></script>
+</body>
+</html>

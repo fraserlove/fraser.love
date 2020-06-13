@@ -1,0 +1,219 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html{
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #eeeeee;
+    width: 100%;
+    background: #1a1a1a;
+    overflow-x: hidden;
+  }
+  
+  body{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #212121, #0a0a0a);
+  }
+  
+  a{ 
+    text-decoration: none;
+    color: #eeeeee;
+  }
+  
+  p{
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 8px;
+    background: linear-gradient(to top, #212121, #0a0a0a);
+  }
+  
+  .section-heading h1{
+    font-size: 8rem;
+    background: linear-gradient(to right, #35aae8, #531cd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -110%);
+    white-space: nowrap;
+  }
+  
+  .section-heading h1:before{
+    content: "";
+    position: absolute;
+    left: 0%;
+    right: 100%;
+    bottom: 0.5rem;
+    background: linear-gradient(to right, #35aae8, #531cd4);
+    height: 0.1em;
+    transition-property: left right;
+    transition-duration: 1s;
+    transition-timing-function: cubic-bezier(1,0,.19,1);
+  }
+  
+  .section-heading h1:hover:before{
+    left: 0;
+    right: 0;
+  }
+  
+  .section-heading h6{
+    font-size: 3rem;
+    font-weight: 300;
+    user-select: none;
+    margin-bottom: 5rem;
+    width: 100rem;
+    display: inline-block;
+  }
+  
+  .container{
+    text-align: center;
+  }
+  
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #1c6fd4, #531cd4);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  }
+
+.view .publications-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .view .publications-container img{
+    width: 90rem;
+  }
+  
+  .view .publications-container .swiper-slide:nth-child(n){
+    width: 90rem;
+  }
+
+  .view a{
+    border: none;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 3px;
+    background: linear-gradient(to right, #1c6fd4, #531cd4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+  }
+
+  .view ul{
+      list-style-type: none;
+      position: absolute;
+      transform: translate(0%, 0%);
+      left: 1rem;
+      top: 1rem;
+  }
+
+  .view li{
+    display: inline-block;
+  }
+
+  .view .button-bg:hover{
+    background-color: #0e0e0e;
+  }
+  
+  .view .button-bg:active{
+    opacity: 0.5;
+  }
+  
+  .view .button-bg{
+    background-color: #141414;
+    border-radius: 10px;
+    padding: 0.5rem 0rem;
+  }
+
+
+@media screen and (max-width: 992px){
+  .view .publications-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .view .publications-container img{
+    width: 80rem;
+  }
+  
+  .view .publications-container .swiper-slide:nth-child(n){
+    width: 80rem;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .view .publications-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .view .publications-container img{
+    width: 60rem;
+  }
+  
+  .view .publications-container .swiper-slide:nth-child(n){
+    width: 60rem;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .view .publications-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .view .publications-container img{
+    width: 50rem;
+  }
+  
+  .view .publications-container .swiper-slide:nth-child(n){
+    width: 50rem;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .view .publications-container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .view .publications-container img{
+    width: 40rem;
+  }
+  
+  .view .publications-container .swiper-slide:nth-child(n){
+    width: 40rem;
+  }
+}
