@@ -11,14 +11,11 @@
     width: 100%;
     background: #1a1a1a;
     overflow-x: hidden;
-    height: 100vh;
   }
   
   body{
     width: 100%;
     background: linear-gradient(to top, #212121, #0a0a0a);
-    height: 100vh;
-    overflow-y: hidden;
   }
   
   a{ 
@@ -78,8 +75,6 @@
   
   .container{
     text-align: center;
-    height: 100vh;
-    overflow-y: hidden;
   }
   
   ::-webkit-scrollbar-track {
@@ -98,25 +93,15 @@
     box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
   }
 
-  .view{
-    height: 100vh;
-    overflow-y: hidden;
-  }
-
   .view .publications-container{
     z-index: -100;
-    height: 100vh;
-    overflow-y: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  .view .publications-container img{
-    width: 85rem;
-  }
-  
-  .view .publications-container .swiper-slide:nth-child(n){
+  .view .publications-container img,
+  .view .publications-container .swiper-slide:nth-child(n) {
     width: 85rem;
   }
 
@@ -164,44 +149,36 @@
 
 @media screen and (max-width: 992px){
 
-  .view .publications-container img{
+  .view .publications-container img,
+  .view .publications-container .swiper-slide:nth-child(n) {
     width: 80rem;
   }
-  
-  .view .publications-container .swiper-slide:nth-child(n){
-    width: 80rem;
-  }
+
 }
 
 @media screen and (max-width: 768px){
 
-  .view .publications-container img{
+  .view .publications-container img,
+  .view .publications-container .swiper-slide:nth-child(n) {
     width: 60rem;
   }
-  
-  .view .publications-container .swiper-slide:nth-child(n){
-    width: 60rem;
-  }
+
 }
 
 @media screen and (max-width: 600px){
 
-  .view .publications-container img{
+  .view .publications-container img,
+  .view .publications-container .swiper-slide:nth-child(n) {
     width: 50rem;
   }
-  
-  .view .publications-container .swiper-slide:nth-child(n){
-    width: 50rem;
-  }
+
 }
 
 @media screen and (max-width: 480px){
 
-  .view .publications-container img{
+  .view .publications-container img,
+  .view .publications-container .swiper-slide:nth-child(n) {
     width: 40rem;
   }
-  
-  .view .publications-container .swiper-slide:nth-child(n){
-    width: 40rem;
-  }
+
 }

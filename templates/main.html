@@ -694,7 +694,9 @@
                     <div class="swiper-wrapper">
                     {% for pdf in pdf_images %}
                         <div class="swiper-slide">
-                            <img src='/images/pdf-images/{{ pdf }}/{{ pdf }}-{{ 0 }}.jpg'>
+                            <a href='/view/{{ pdf }}'>
+                                <img src='/images/pdf-images/{{ pdf }}/{{ pdf }}-{{ 0 }}.jpg'>
+                            </a>
                             <div class='view-publication-button-bg'>
                                 <a class='view-publication-button' href='/view/{{ pdf }}'>View Publication</a>
                             </div>
