@@ -96,6 +96,7 @@
 
   .site {
     overflow-x: hidden;
+    overflow-y: hidden;
   }
 
 .view .publications-container{
