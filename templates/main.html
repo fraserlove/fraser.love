@@ -612,6 +612,16 @@
             <div class='github-button-bg'>
                 <a class='github-button' href='https://github.com/fraserlove'>View me on Github</a>
             </div>
+            <div class='yearly-stats-heading'>
+                <h3>Downloads</h3>
+            </div>
+            <ul>
+                <li>
+                    <div class='github-button-bg'>
+                        <a class='github-button' href='/files/blocky-dodge.apk'>Blocky Dodge (Android APK)</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
 
@@ -692,8 +702,8 @@
                     <div class="swiper-wrapper">
                     {% for pdf in pdf_images %}
                         <div class="swiper-slide">
-                            <a href='/view/{{ pdf }}'>
-                                <img src='/images/pdf-images/{{ pdf }}/{{ pdf }}-{{ 0 }}.jpg'>
+                            <a href='/files/{{ pdf }}.pdf'>
+                                <img src='/images/pdf-images/{{ pdf }}.jpg'>
                                 <div class='cover'>
                                     <i class='fa fa-expand'></i>
                                 </div>
@@ -712,7 +722,7 @@
                 <h1>Contact Me</h1>
                 <h6>Collaberate with me or just ask a question.</h6>
             </div>
-            <form action='/contact' method='POST'>
+            <form action='/contact' method='POST' class='contact-form'>
                 <label for='name'><b>Name:</b></label>
                 <div class='form-bd'>
                     <div class='input-bg'>
@@ -732,7 +742,7 @@
                     </div>
                 </div>
                 <div class='submit-button-bg'>
-                    <input type='submit' value='submit'>
+                    <button class="g-recaptcha" data-sitekey="{{ recaptcha_site_key }}" data-callback='onSubmit' data-action='submit'>Submit</button>
                 </div>
             </form>
         </div>
@@ -784,6 +794,7 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src='/js/main.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>

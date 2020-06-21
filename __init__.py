@@ -22,10 +22,12 @@ Compress(app)
 msg_timeout = 3600  # 1 hour
 api_rest = 3600 # 1 hour
 
-pdf_images = {}
+recaptcha_site_key = '6LdllacZAAAAABZdw99eNREvtbPow7_gJdR0OI0_' # Not secret
+
+pdf_images = []
 pdf_dir = 'static/images/pdf-images/'
 for pdf_image_dir in os.listdir(pdf_dir):
-    pdf_images[pdf_image_dir] = len(os.listdir('{}{}'.format(pdf_dir, pdf_image_dir))) - 1
+    pdf_images.append(pdf_image_dir.split('.jpg')[0])
 
 @app.before_request
 def redirect_https():
@@ -91,6 +93,7 @@ def home():
     total_changes=github_api.total_changes,
     total_sloc=github_api.total_sloc,
     pdf_images=pdf_images,
+    recaptcha_site_key=recaptcha_site_key
     )
 
 @app.errorhandler(Exception)
@@ -99,11 +102,6 @@ def page_not_found(error):
     error_title = str(error)[3:].split(':')[0]
     error_desc = str(error).split(':')[1]
     return render_template('error_page.html', error_code=error_code, error_title=error_title, error_desc=error_desc), int(error_code)
-
-@app.route('/view/<pdf>')
-def view(pdf):
-    pdf_len = pdf_images[pdf]
-    return render_template('view.html', pdf=pdf, pdf_len=pdf_len)
 
 @app.route('/contact', methods=['POST'])
 def contact():

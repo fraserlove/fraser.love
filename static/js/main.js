@@ -141,4 +141,7 @@ $(document).ready(function(){
     $('.youtube-video-place').on('click', function(){
     $('#'+this.id).html('<iframe allowfullscreen frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" class="embed-responsive-item" src="' + $(this).data("yt-url") + '"></iframe>');});}
 
+    function onSubmit(token) {
+        document.getElementById('contact-form').submit();
+    }
 });
