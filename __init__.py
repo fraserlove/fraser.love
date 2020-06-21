@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from flask_compress import Compress
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
-import os, datetime, time, dateutil.parser, string
+import os, datetime, time, dateutil.parser, string, requests
 
 from tasks import YouTube_API, GitHub_API
 
