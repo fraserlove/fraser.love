@@ -30,19 +30,19 @@ pdf_dir = 'static/images/pdf-images/'
 for pdf_image_dir in os.listdir(pdf_dir):
     pdf_images.append(pdf_image_dir.split('.jpg')[0])
 
-#@app.before_request
-#def redirect_https():
-#    if request.url.startswith('http://'):
-#        url = request.url.replace('http://', 'https://', 1)
-#        return redirect(url, code=301)
+@app.before_request
+def redirect_https():
+    if request.url.startswith('http://'):
+        url = request.url.replace('http://', 'https://', 1)
+        return redirect(url, code=301)
 
-#@app.before_request
-#def redirect_www():
-#    urlparts = urlparse(request.url)
-#    if urlparts.netloc == 'www.fraser.love':
-#        urlparts_list = list(urlparts)
-#        urlparts_list[1] = 'fraser.love'
-#        return redirect(urlunparse(urlparts_list), code=301)
+@app.before_request
+def redirect_www():
+    urlparts = urlparse(request.url)
+    if urlparts.netloc == 'www.fraser.love':
+        urlparts_list = list(urlparts)
+        urlparts_list[1] = 'fraser.love'
+        return redirect(urlunparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
     with app.app_context():
@@ -140,7 +140,7 @@ def contact():
             flash_message, flash_type = 'Message has been sent successfully.', 'info'
             response.set_cookie('time', str(time.time()))
         else:
-             flash_message, flash_type = 'Error, bots are not allowed', 'error'
+             flash_message, flash_type = 'Error validating humanity', 'error'
     else:
         seconds_left = msg_timeout - time_elapsed
         time_left = datetime.datetime(1,1,1) + datetime.timedelta(seconds=float(seconds_left))
@@ -151,4 +151,4 @@ def contact():
 
 youtube_api, github_api = start_apis()
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
