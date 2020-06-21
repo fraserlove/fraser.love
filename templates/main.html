@@ -10,6 +10,7 @@
     <link rel='stylesheet' href='https://unpkg.com/aos@next/dist/aos.css'/>
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="icon" type="image/png" href='/images/favicon.ico'>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Fraser Love</title>
 </head>
 <body>
@@ -741,9 +742,9 @@
                     <textarea name='message' id='message' cols='10' rows='15' maxlength='5000' required minlength='20'></textarea>
                     </div>
                 </div>
+                <div class="g-recaptcha" data-sitekey="{{ recaptcha_site_key }}"></div>
                 <div class='submit-button-bg'>
                     <input type='submit' value='submit'>
-                    <button class="g-recaptcha" data-sitekey="{{ recaptcha_site_key }}" data-action='submit'>Submit</button>
                 </div>
             </form>
         </div>
@@ -795,7 +796,6 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src='/js/main.js'></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>

@@ -22,26 +22,27 @@ Compress(app)
 msg_timeout = 3600  # 1 hour
 api_rest = 3600 # 1 hour
 
-recaptcha_site_key = '6LdllacZAAAAABZdw99eNREvtbPow7_gJdR0OI0_' # Not secret
+recaptcha_site_key = '6Lc8mqcZAAAAALjyfzfMUsMa2Il6i770ZuirgwcW' # Not secret
+recaptcha_private_key = os.environ.get('RECAPTCHA_KEY')
 
 pdf_images = []
 pdf_dir = 'static/images/pdf-images/'
 for pdf_image_dir in os.listdir(pdf_dir):
     pdf_images.append(pdf_image_dir.split('.jpg')[0])
 
-@app.before_request
-def redirect_https():
-    if request.url.startswith('http://'):
-        url = request.url.replace('http://', 'https://', 1)
-        return redirect(url, code=301)
+#@app.before_request
+#def redirect_https():
+#    if request.url.startswith('http://'):
+#        url = request.url.replace('http://', 'https://', 1)
+#        return redirect(url, code=301)
 
-@app.before_request
-def redirect_www():
-    urlparts = urlparse(request.url)
-    if urlparts.netloc == 'www.fraser.love':
-        urlparts_list = list(urlparts)
-        urlparts_list[1] = 'fraser.love'
-        return redirect(urlunparse(urlparts_list), code=301)
+#@app.before_request
+#def redirect_www():
+#    urlparts = urlparse(request.url)
+#    if urlparts.netloc == 'www.fraser.love':
+#        urlparts_list = list(urlparts)
+#        urlparts_list[1] = 'fraser.love'
+#        return redirect(urlunparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
     with app.app_context():
@@ -53,6 +54,12 @@ def send_mail(subject, sender, recipient, template):
     mail_thread = Thread(target=async_send_mail, args=[app, msg])
     mail_thread.start()
     return mail_thread
+
+def is_human(captcha_response):
+    payload = {'response':captcha_response, 'secret':recaptcha_private_key}
+    response = requests.post("https://www.google.com/recaptcha/api/siteverify", payload)
+    response_text = json.loads(response.text)
+    return response_text['success']
 
 def start_apis():
     youtube_api = YouTube_API()
@@ -117,19 +124,23 @@ def contact():
         name = request.form.get('name').lower()
         email = request.form.get('email').lower()
         message = request.form.get('message')
+        captcha_response = request.form['g-recaptcha-response']
 
-        html = """
-                <html>
-                    <b>{} @ '{}' sent the following message at {}:</b>
-                    <br><br><i>{}</i>
-                </html>
-                """.format(name, email, datetime.datetime.now(), message)
+        if is_human(captcha_response):
+            html = """
+                    <html>
+                        <b>{} @ '{}' sent the following message at {}:</b>
+                        <br><br><i>{}</i>
+                    </html>
+                    """.format(name, email, datetime.datetime.now(), message)
 
-        subject = 'fraser.love: New message from {}'.format(name)
+            subject = 'fraser.love: New message from {}'.format(name)
 
-        send_mail(subject, os.environ.get('SENDER_EMAIL'), os.environ.get('RECIEVER_EMAIL'), html)
-        flash_message, flash_type = 'Message has been sent successfully.', 'info'
-        response.set_cookie('time', str(time.time()))
+            send_mail(subject, os.environ.get('SENDER_EMAIL'), os.environ.get('RECIEVER_EMAIL'), html)
+            flash_message, flash_type = 'Message has been sent successfully.', 'info'
+            response.set_cookie('time', str(time.time()))
+        else:
+             flash_message, flash_type = 'Error, bots are not allowed', 'error'
     else:
         seconds_left = msg_timeout - time_elapsed
         time_left = datetime.datetime(1,1,1) + datetime.timedelta(seconds=float(seconds_left))
@@ -140,4 +151,4 @@ def contact():
 
 youtube_api, github_api = start_apis()
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
