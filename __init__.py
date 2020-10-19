@@ -31,7 +31,11 @@ for pdf_image_dir in os.listdir(pdf_dir):
     pdf_images.append(pdf_image_dir.split('.jpg')[0])
 
 dob = datetime.date(2002, 8, 17)
+started_programming = datetime.date(2016, 7, 1)
+started_youtube = datetime.date(2016, 1, 1)
 dob_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), dob).years
+started_programming_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), started_programming).years
+started_youtube_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), started_youtube).years
 
 @app.before_request
 def redirect_https():
@@ -81,6 +85,8 @@ def home():
     
     return render_template('main.html',
     dob_delta=dob_delta,
+    started_programming_delta = started_programming_delta,
+    started_youtube_delta = started_youtube_delta,
     views=youtube_api.no_views, 
     subs=youtube_api.no_subs, 
     no_videos=youtube_api.no_videos, 
