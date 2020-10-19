@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from flask_compress import Compress
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
-import os, datetime, time, dateutil.parser, string, requests, json
+import os, datetime, time, dateutil.parser, dateutil.relativedelta, string, requests, json
 
 from tasks import YouTube_API, GitHub_API
 
@@ -29,6 +29,9 @@ pdf_images = []
 pdf_dir = 'static/images/pdf-images/'
 for pdf_image_dir in os.listdir(pdf_dir):
     pdf_images.append(pdf_image_dir.split('.jpg')[0])
+
+dob = datetime.date(2002, 8, 17)
+dob_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), dob).years
 
 @app.before_request
 def redirect_https():
@@ -76,7 +79,8 @@ def start_apis():
 def home():
     global youtube_api, github_api
     
-    return render_template('main.html', 
+    return render_template('main.html',
+    dob_delta=dob_delta,
     views=youtube_api.no_views, 
     subs=youtube_api.no_subs, 
     no_videos=youtube_api.no_videos, 
