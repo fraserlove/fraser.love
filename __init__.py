@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from flask_compress import Compress
 from threading import Thread
 from urllib.parse import urlparse, urlunparse
-import os, datetime, time, dateutil.parser, dateutil.relativedelta, string, requests, json
+import os, datetime, time, dateutil.parser, dateutil.relativedelta, string, requests, json, num2words
 
 from tasks import YouTube_API, GitHub_API
 
@@ -34,8 +34,8 @@ dob = datetime.date(2002, 8, 17)
 started_programming = datetime.date(2016, 7, 1)
 started_youtube = datetime.date(2016, 1, 1)
 dob_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), dob).years
-started_programming_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), started_programming).years
-started_youtube_delta = dateutil.relativedelta.relativedelta(datetime.date.today(), started_youtube).years
+started_programming_delta = num2words.num2words(dateutil.relativedelta.relativedelta(datetime.date.today(), started_programming).years)
+started_youtube_delta = num2words.num2words(dateutil.relativedelta.relativedelta(datetime.date.today(), started_youtube).years)
 
 @app.before_request
 def redirect_https():

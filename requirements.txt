@@ -6,3 +6,4 @@ google-api-python-client
 pygithub
 python-dateutil
 requests
+num2words
