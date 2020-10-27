@@ -43,13 +43,13 @@ def redirect_https():
         url = request.url.replace('http://', 'https://', 1)
         return redirect(url, code=301)
 
-#@app.before_request
-#def redirect_www():
-#    urlparts = urlparse(request.url)
-#    if urlparts.netloc == 'www.fraser.love':
-#        urlparts_list = list(urlparts)
-#        urlparts_list[1] = 'fraser.love'
-#        return redirect(urlunparse(urlparts_list), code=301)
+@app.before_request
+def redirect_base_domain():
+    urlparts = urlparse(request.url)
+    if urlparts.netloc == 'fraser.love':
+        urlparts_list = list(urlparts)
+        urlparts_list[1] = 'www.fraser.love'
+        return redirect(urlunparse(urlparts_list), code=301)
 
 def async_send_mail(app, msg):
     with app.app_context():
