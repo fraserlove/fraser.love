@@ -112,7 +112,7 @@ def home():
     total_sloc=github_api.total_sloc,
     pdf_images=pdf_images,
     recaptcha_site_key=recaptcha_site_key,
-    total_requests=total_requests,
+    total_requests=total_requests
     )
 
 @app.errorhandler(Exception)
