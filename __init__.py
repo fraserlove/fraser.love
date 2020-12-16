@@ -83,7 +83,7 @@ def start_apis():
 @app.route('/')
 def home():
     global youtube_api, github_api
-    
+    total_requests += 1
     return render_template('main.html',
     dob_delta=dob_delta,
     started_programming_delta = started_programming_delta,
@@ -111,7 +111,8 @@ def home():
     total_changes=github_api.total_changes,
     total_sloc=github_api.total_sloc,
     pdf_images=pdf_images,
-    recaptcha_site_key=recaptcha_site_key
+    recaptcha_site_key=recaptcha_site_key,
+    total_requests=total_requests,
     )
 
 @app.errorhandler(Exception)
