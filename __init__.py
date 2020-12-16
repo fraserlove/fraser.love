@@ -21,6 +21,7 @@ Compress(app)
 
 msg_timeout = 3600  # 1 hour
 api_rest = 3600 # 1 hour
+total_requests = 0
 
 recaptcha_site_key = '6Lc8mqcZAAAAALjyfzfMUsMa2Il6i770ZuirgwcW' # Not secret
 recaptcha_private_key = os.environ.get('RECAPTCHA_KEY')
