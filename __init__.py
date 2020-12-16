@@ -82,7 +82,7 @@ def start_apis():
 
 @app.route('/')
 def home():
-    global youtube_api, github_api
+    global youtube_api, github_api, total_requests
     total_requests += 1
     return render_template('main.html',
     dob_delta=dob_delta,
