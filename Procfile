@@ -1,1 +1,0 @@
-web: gunicorn --workers=4 __init__:app

@@ -1,9 +1,0 @@
-gunicorn
-flask
-flask_mail
-flask-compress
-google-api-python-client
-pygithub
-python-dateutil
-requests
-num2words
