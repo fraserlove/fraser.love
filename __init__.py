@@ -21,7 +21,6 @@ Compress(app)
 
 msg_timeout = 3600  # 1 hour
 api_rest = 3600 # 1 hour
-total_requests = 0
 
 recaptcha_site_key = '6Lc8mqcZAAAAALjyfzfMUsMa2Il6i770ZuirgwcW' # Not secret
 recaptcha_private_key = os.environ.get('RECAPTCHA_KEY')
@@ -82,8 +81,7 @@ def start_apis():
 
 @app.route('/')
 def home():
-    global youtube_api, github_api, total_requests
-    total_requests += 1
+    global youtube_api, github_api
     return render_template('main.html',
     dob_delta=dob_delta,
     started_programming_delta = started_programming_delta,
@@ -111,8 +109,7 @@ def home():
     total_changes=github_api.total_changes,
     total_sloc=github_api.total_sloc,
     pdf_images=pdf_images,
-    recaptcha_site_key=recaptcha_site_key,
-    total_requests=total_requests
+    recaptcha_site_key=recaptcha_site_key
     )
 
 @app.errorhandler(Exception)
