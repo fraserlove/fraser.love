@@ -1,4 +1,4 @@
-vscode/
+.vscode/
 /static/files/
 /static/images/
 Procfile
